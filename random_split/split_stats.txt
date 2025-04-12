@@ -1,0 +1,54 @@
+Train: 11469 samples, 15 speakers
+Val: 2458 samples, 15 speakers
+Test: 2458 samples, 15 speakers
+
+Speaker distribution in train set:
+  FC02: 1505
+  MC01: 1476
+  FC03: 1358
+  MC03: 1155
+  MC04: 1118
+  MC02: 769
+  F03: 766
+  M03: 557
+  M02: 534
+  M01: 517
+  F04: 482
+  M04: 447
+  M05: 398
+  FC01: 226
+  F01: 161
+
+Speaker distribution in val set:
+  FC02: 342
+  MC01: 320
+  FC03: 255
+  MC04: 249
+  MC03: 235
+  MC02: 164
+  F03: 139
+  M01: 136
+  M03: 131
+  M02: 124
+  F04: 101
+  M04: 100
+  M05: 94
+  FC01: 35
+  F01: 33
+
+Speaker distribution in test set:
+  MC01: 344
+  FC02: 329
+  FC03: 295
+  MC03: 265
+  MC04: 239
+  MC02: 179
+  F03: 170
+  M03: 112
+  M02: 108
+  M04: 104
+  M01: 85
+  F04: 82
+  M05: 79
+  F01: 34
+  FC01: 33
