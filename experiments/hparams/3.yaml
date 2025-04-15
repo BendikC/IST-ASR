@@ -9,8 +9,8 @@
 # ############################################################################
 
 # Seed needs to be set at top of yaml, before objects with parameters are made
-# This experiment tests 384 model size
-seed: 1111
+# this experiment tests 0.0003 lr
+seed: 3333
 __set_seed: !apply:speechbrain.utils.seed_everything [!ref <seed>]
 
 # Force CPU usage
@@ -56,7 +56,7 @@ warmup_steps: 4000
 num_workers: 4
 # change back to 4 for gpu
 batch_size_valid: 8
-lr: 0.0004
+lr: 0.0003
 weight_decay: 0.01
 number_of_ctc_epochs: 10
 ctc_weight: 0.2 # Multitask with CTC for the encoder (0.0 = disabled)
@@ -135,7 +135,7 @@ dynamic_batch_sampler:
 
 # Transformer
 ## change back to 512 for gpu
-d_model: 384
+d_model: 512
 ## change back to 640 for gpu
 joint_dim: 640
 # change back to 8 for gpu

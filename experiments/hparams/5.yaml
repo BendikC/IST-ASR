@@ -9,8 +9,8 @@
 # ############################################################################
 
 # Seed needs to be set at top of yaml, before objects with parameters are made
-# This experiment tests 384 model size
-seed: 1111
+# this experiment tests 12, 3 encoder, decoder layers
+seed: 5555
 __set_seed: !apply:speechbrain.utils.seed_everything [!ref <seed>]
 
 # Force CPU usage
@@ -135,13 +135,13 @@ dynamic_batch_sampler:
 
 # Transformer
 ## change back to 512 for gpu
-d_model: 384
+d_model: 512
 ## change back to 640 for gpu
 joint_dim: 640
 # change back to 8 for gpu
 nhead: 8
 # change back to 12 for gpu
-num_encoder_layers: 8
+num_encoder_layers: 12
 num_decoder_layers: 3
 d_ffn: 2048
 transformer_dropout: 0.1

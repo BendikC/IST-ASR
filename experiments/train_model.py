@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 
 import torch
+import csv
 import pandas as pd
 from hyperpyyaml import load_hyperpyyaml
 
@@ -14,7 +15,7 @@ from speechbrain.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def create_mini_dataset(csv_path, max_samples=20, random_seed=1234):
+def create_mini_dataset(csv_path, max_samples=50, random_seed=1234):
     """Creates a smaller version of the dataset with random samples for testing purposes
     Args:
         csv_path (str): Path to the original CSV file.
@@ -277,12 +278,15 @@ class ASR(sb.Brain):
     def on_stage_end(self, stage, stage_loss, epoch):
         """Gets called at the end of a epoch, reporting metrics and saving checkpoints."""
         # Compute/store important stats
+        logger.info(f"Stage {stage} ended with loss: {stage_loss}")
         stage_stats = {"loss": stage_loss}
         if stage == sb.Stage.TRAIN:
             self.train_stats = stage_stats
         else:
+            logger.info("Computing CER and WER metrics...")
             stage_stats["CER"] = self.cer_metric.summarize("error_rate")
             stage_stats["WER"] = self.wer_metric.summarize("error_rate")
+            logger.info(f"CER: {stage_stats['CER']}, WER: {stage_stats['WER']}")
 
         # Perform end-of-iteration things, like annealing, logging, etc.
         if stage == sb.Stage.VALID:
@@ -305,7 +309,7 @@ class ASR(sb.Brain):
 
             # Report speaker metrics if available
             if self.speaker_metrics:
-                self._report_speaker_metrics("Validation")
+                self._report_speaker_metrics("Validation", save_to_file=True)
 
             self.checkpointer.save_and_keep_only(
                 meta={"WER": stage_stats["WER"], "epoch": epoch},
@@ -321,7 +325,7 @@ class ASR(sb.Brain):
 
             # Report speaker metrics if available
             if self.speaker_metrics:
-                self._report_speaker_metrics("Validation")
+                self._report_speaker_metrics("Test", save_to_file=True)
 
             if if_main_process():
                 with open(
@@ -395,6 +399,12 @@ class ASR(sb.Brain):
     def on_evaluate_start(self, max_key=None, min_key=None):
         """perform checkpoint average if needed"""
         super().on_evaluate_start()
+
+        # Skip checkpoint averaging in test mode
+        if hasattr(self.hparams, "test_mode") and self.hparams.test_mode:
+            logger.info("Test mode: Skipping checkpoint averaging")
+            self.hparams.model.eval()
+            return
 
         ckpts = self.checkpointer.find_checkpoints(
             max_key=max_key,
@@ -619,7 +629,6 @@ if __name__ == "__main__":
     hparams["pretrainer"].collect_files()
     hparams["pretrainer"].load_collected()
 
-    # Trainer initialization
     asr_brain = ASR(
         modules=hparams["modules"],
         opt_class=hparams["opt_class"],
@@ -628,17 +637,29 @@ if __name__ == "__main__":
         checkpointer=hparams["checkpointer"],
     )
 
-    # For test mode, use smaller beam size for faster execution
+    # Pass test_mode to hparams
     if args.test_mode:
+        asr_brain.hparams.test_mode = True
         asr_brain.hparams.Beamsearcher.beam_size = 4
         logger.info("Reduced beam size to 4 for test mode")
     else:
+        asr_brain.hparams.test_mode = False
         asr_brain.hparams.Beamsearcher.beam_size = 10
 
     # We dynamically add the tokenizer to our brain class.
     asr_brain.tokenizer = hparams["tokenizer"]
     train_dataloader_opts = hparams["train_dataloader_opts"]
     valid_dataloader_opts = hparams["valid_dataloader_opts"]
+
+        # Modify the train_dataloader_opts reduction in the main section:
+    if args.test_mode:
+        if "batch_size" in train_dataloader_opts:
+            train_dataloader_opts["batch_size"] = min(train_dataloader_opts["batch_size"], 2)
+        if "num_workers" in train_dataloader_opts:
+            train_dataloader_opts["num_workers"] = 0  # Use 0 workers for test mode
+        if "batch_size" in valid_dataloader_opts:
+            valid_dataloader_opts["batch_size"] = min(valid_dataloader_opts["batch_size"], 2)
+        logger.info("Reduced batch sizes and disabled workers for test mode")
 
     if train_bsampler is not None and hparams["dynamic_batching"]:
         train_dataloader_opts = {
