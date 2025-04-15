@@ -1,0 +1,33 @@
+OVERALL METRICS:
+WER: 11.497913124130468
+SER: 33.604556550040684
+num_edits: 3719
+num_scored_tokens: 32345
+num_erroneous_sents: 826
+num_scored_sents: 2458
+num_absent_sents: 0
+num_ref_sents: 2458
+insertions: 966
+deletions: 1043
+substitutions: 1710
+error_rate: 11.497913124130468
+
+SPEAKER ANALYSIS:
+Total speakers: 15
+
+SPEAKER RANKING BY WER (BEST TO WORST):
+Speaker MC01: 3.09
+Speaker FC02: 3.65
+Speaker F04: 3.78
+Speaker FC03: 4.08
+Speaker MC04: 4.28
+Speaker M03: 4.90
+Speaker MC03: 5.10
+Speaker MC02: 6.16
+Speaker FC01: 10.04
+Speaker F03: 17.38
+Speaker M05: 28.60
+Speaker M02: 38.06
+Speaker M01: 46.18
+Speaker M04: 50.16
+Speaker F01: 51.56

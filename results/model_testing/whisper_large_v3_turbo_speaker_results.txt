@@ -1,0 +1,212 @@
+DETAILED SPEAKER METRICS:
+
+Speaker MC03:
+  WER: 5.096097845078625
+  SER: 18.867924528301888
+  num_edits: 175
+  num_scored_tokens: 3434
+  num_erroneous_sents: 50
+  num_scored_sents: 265
+  num_absent_sents: 0
+  num_ref_sents: 265
+  insertions: 35
+  deletions: 93
+  substitutions: 47
+  error_rate: 5.096097845078625
+
+Speaker MC02:
+  WER: 6.164079822616408
+  SER: 32.960893854748605
+  num_edits: 139
+  num_scored_tokens: 2255
+  num_erroneous_sents: 59
+  num_scored_sents: 179
+  num_absent_sents: 0
+  num_ref_sents: 179
+  insertions: 38
+  deletions: 31
+  substitutions: 70
+  error_rate: 6.164079822616408
+
+Speaker MC04:
+  WER: 4.28380187416332
+  SER: 20.0836820083682
+  num_edits: 128
+  num_scored_tokens: 2988
+  num_erroneous_sents: 48
+  num_scored_sents: 239
+  num_absent_sents: 0
+  num_ref_sents: 239
+  insertions: 34
+  deletions: 55
+  substitutions: 39
+  error_rate: 4.28380187416332
+
+Speaker F04:
+  WER: 3.7848605577689245
+  SER: 17.073170731707318
+  num_edits: 38
+  num_scored_tokens: 1004
+  num_erroneous_sents: 14
+  num_scored_sents: 82
+  num_absent_sents: 0
+  num_ref_sents: 82
+  insertions: 15
+  deletions: 9
+  substitutions: 14
+  error_rate: 3.7848605577689245
+
+Speaker MC01:
+  WER: 3.0936283548453187
+  SER: 16.569767441860463
+  num_edits: 151
+  num_scored_tokens: 4881
+  num_erroneous_sents: 57
+  num_scored_sents: 344
+  num_absent_sents: 0
+  num_ref_sents: 344
+  insertions: 38
+  deletions: 59
+  substitutions: 54
+  error_rate: 3.0936283548453187
+
+Speaker M02:
+  WER: 38.06129722024234
+  SER: 82.4074074074074
+  num_edits: 534
+  num_scored_tokens: 1403
+  num_erroneous_sents: 89
+  num_scored_sents: 108
+  num_absent_sents: 0
+  num_ref_sents: 108
+  insertions: 157
+  deletions: 82
+  substitutions: 295
+  error_rate: 38.06129722024234
+
+Speaker F01:
+  WER: 51.5625
+  SER: 88.23529411764706
+  num_edits: 198
+  num_scored_tokens: 384
+  num_erroneous_sents: 30
+  num_scored_sents: 34
+  num_absent_sents: 0
+  num_ref_sents: 34
+  insertions: 26
+  deletions: 59
+  substitutions: 113
+  error_rate: 51.5625
+
+Speaker FC02:
+  WER: 3.6524500907441015
+  SER: 20.972644376899694
+  num_edits: 161
+  num_scored_tokens: 4408
+  num_erroneous_sents: 69
+  num_scored_sents: 329
+  num_absent_sents: 0
+  num_ref_sents: 329
+  insertions: 38
+  deletions: 47
+  substitutions: 76
+  error_rate: 3.6524500907441015
+
+Speaker M03:
+  WER: 4.904306220095694
+  SER: 18.75
+  num_edits: 82
+  num_scored_tokens: 1672
+  num_erroneous_sents: 21
+  num_scored_sents: 112
+  num_absent_sents: 0
+  num_ref_sents: 112
+  insertions: 19
+  deletions: 32
+  substitutions: 31
+  error_rate: 4.904306220095694
+
+Speaker FC01:
+  WER: 10.043668122270743
+  SER: 27.272727272727273
+  num_edits: 23
+  num_scored_tokens: 229
+  num_erroneous_sents: 9
+  num_scored_sents: 33
+  num_absent_sents: 0
+  num_ref_sents: 33
+  insertions: 12
+  deletions: 1
+  substitutions: 10
+  error_rate: 10.043668122270743
+
+Speaker M01:
+  WER: 46.17768595041322
+  SER: 77.6470588235294
+  num_edits: 447
+  num_scored_tokens: 968
+  num_erroneous_sents: 66
+  num_scored_sents: 85
+  num_absent_sents: 0
+  num_ref_sents: 85
+  insertions: 120
+  deletions: 97
+  substitutions: 230
+  error_rate: 46.17768595041322
+
+Speaker FC03:
+  WER: 4.081081081081081
+  SER: 21.694915254237287
+  num_edits: 151
+  num_scored_tokens: 3700
+  num_erroneous_sents: 64
+  num_scored_sents: 295
+  num_absent_sents: 0
+  num_ref_sents: 295
+  insertions: 33
+  deletions: 42
+  substitutions: 76
+  error_rate: 4.081081081081081
+
+Speaker F03:
+  WER: 17.378681045209458
+  SER: 58.8235294117647
+  num_edits: 419
+  num_scored_tokens: 2411
+  num_erroneous_sents: 100
+  num_scored_sents: 170
+  num_absent_sents: 0
+  num_ref_sents: 170
+  insertions: 101
+  deletions: 130
+  substitutions: 188
+  error_rate: 17.378681045209458
+
+Speaker M04:
+  WER: 50.16479894528675
+  SER: 89.42307692307692
+  num_edits: 761
+  num_scored_tokens: 1517
+  num_erroneous_sents: 93
+  num_scored_sents: 104
+  num_absent_sents: 0
+  num_ref_sents: 104
+  insertions: 167
+  deletions: 245
+  substitutions: 349
+  error_rate: 50.16479894528675
+
+Speaker M05:
+  WER: 28.597616865261227
+  SER: 72.15189873417721
+  num_edits: 312
+  num_scored_tokens: 1091
+  num_erroneous_sents: 57
+  num_scored_sents: 79
+  num_absent_sents: 0
+  num_ref_sents: 79
+  insertions: 133
+  deletions: 61
+  substitutions: 118
+  error_rate: 28.597616865261227
+
